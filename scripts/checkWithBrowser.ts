@@ -154,7 +154,7 @@ function summarize(statuses: ReferralStatus[]): string {
   ];
 
   if (active.length > 0) {
-    summaryLines.push("Active links saved to ACTIVE-LINKS.md");
+    summaryLines.push("Active links saved to active-links-{date}.md");
     summaryLines.push("");
   } else {
     summaryLines.push("No active links found - all have been redeemed.");

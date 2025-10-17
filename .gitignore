@@ -27,7 +27,7 @@ Thumbs.db
 *.bak
 cookies.txt
 check-results.log
-ACTIVE-LINKS.md
+active-links-*.md
 
 # Ignore test files
 test-*.md

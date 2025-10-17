@@ -26,7 +26,7 @@ A browser window will open and automatically verify all links.
 
 ## Output Files
 
-- `ACTIVE-LINKS.md` - Clickable list of active links
+- `active-links-YYYY-MM-DD.md` - List of active links with total credits available
 - `links.md` - Updated with current status for each link
 - `links.md.bak` - Backup of your original file
 
