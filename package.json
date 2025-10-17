@@ -1,0 +1,18 @@
+{
+  "name": "credit-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "check": "ts-node scripts/checkReferralCodes.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^24.8.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "undici": "^7.16.0"
+  }
+}
