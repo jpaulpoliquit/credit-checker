@@ -66,14 +66,14 @@ CHECK_DELAY_MS=2000 npm run check-browser
 
 ```
 credit-checker/
-├── links-template.md         # Template for your links
-├── links.md                  # Your referral links (create from template)
-├── ACTIVE-LINKS.md           # Generated: active links only
+├── links-template.md             # Template for your links
+├── links.md                      # Your referral links (create from template)
+├── active-links-YYYY-MM-DD.md    # Generated: active links with credits
 ├── README.md
 ├── package.json
 ├── tsconfig.json
 └── scripts/
-    └── checkWithBrowser.ts   # Main checker script
+    └── checkWithBrowser.ts       # Main checker script
 ```
 
 ## Adding Your Links
