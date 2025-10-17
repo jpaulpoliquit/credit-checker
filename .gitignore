@@ -35,3 +35,4 @@ test-*.md
 # User's personal link files (optional - user can commit if desired)
 links.md
 ep*.md
+*.md

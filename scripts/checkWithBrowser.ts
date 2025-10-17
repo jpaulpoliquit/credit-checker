@@ -118,66 +118,22 @@ function buildActiveLinksMarkdown(
   const lines = [
     "# Active Cursor Referral Links",
     "",
-    `**Last Updated:** ${dateStr}`,
-    "",
-    `**Total Active Links:** ${activeLinks.length} out of ${totalCount} checked  `,
-    `**Total Available Credits:** $${totalValue.toFixed(2)} (${activeLinks.length} × $20)`,
-    "",
-    "---",
-    "",
-    "## How to Use These Links",
-    "",
-    "1. **Open a link** in your browser (must be logged into Cursor)",
-    "2. Click the **redeem** button on the page",
-    "3. The credit applies to your next monthly subscription or usage-based bills",
-    "",
-    "⚠️ **Note:** Each link can only be redeemed once. After you use a link, it will be marked as \"redeemed\" when you run the checker again.",
+    `**Last Checked:** ${dateStr}`,
+    `**Total Active:** ${activeLinks.length} of ${totalCount} checked`,
+    `**Total Credits Available:** $${totalValue.toFixed(2)}`,
+    `**Success Rate:** ${successRate}%`,
     "",
     "---",
     "",
-    "## ✅ Available Links (Click to Redeem)",
+    "## Available Links",
     "",
-    "| # | Link | Last Verified |",
-    "|---|------|---------------|",
   ];
 
-  activeLinks.forEach((link, index) => {
-    const timestamp = new Date(link.lastChecked).toISOString().slice(0, 16).replace("T", " ");
-    const linkMd = `[${link.url}](${link.url})`;
-    lines.push(`| ${index + 1} | ${linkMd} | ${timestamp} |`);
+  activeLinks.forEach((link) => {
+    lines.push(link.url);
   });
 
-  lines.push(
-    "",
-    "---",
-    "",
-    "## 🔄 Update These Links",
-    "",
-    "To re-check all links and update this list:",
-    "",
-    "```bash",
-    "npm run check-browser",
-    "```",
-    "",
-    "This will:",
-    "- ✅ Verify which links are still active",
-    "- ❌ Mark redeemed links",
-    "- 📝 Update both full list and this active-only list",
-    "",
-    "---",
-    "",
-    "## 📊 Quick Stats",
-    "",
-    `- **Active:** ${activeLinks.length} links`,
-    `- **Redeemed:** ${redeemedCount} links`,
-    `- **Success Rate:** ${successRate}% still available`,
-    `- **Potential Value:** $${totalValue} in credits`,
-    "",
-    "---",
-    "",
-    "**Tip:** Use these links on different Cursor accounts to maximize your credits!",
-    ""
-  );
+  lines.push("");
 
   return lines.join("\n");
 }
@@ -302,9 +258,11 @@ async function main() {
     const redeemedCount = statuses.filter((s) => s.status === "redeemed").length;
     
     if (activeLinks.length > 0) {
+      const dateStr = new Date().toISOString().split("T")[0];
+      const activeFilename = `active-links-${dateStr}.md`;
       const activeMd = buildActiveLinksMarkdown(activeLinks, redeemedCount, statuses.length);
-      await writeFile("ACTIVE-LINKS.md", activeMd, "utf8");
-      console.log(`Active links saved to: ACTIVE-LINKS.md`);
+      await writeFile(activeFilename, activeMd, "utf8");
+      console.log(`Active links saved to: ${activeFilename}`);
     }
 
     const summary = summarize(statuses);
