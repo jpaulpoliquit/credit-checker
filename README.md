@@ -1,6 +1,6 @@
 # Cursor Referral Link Checker
 
-Automatically verify which Cursor referral links are still active and which have been redeemed.
+Internal tool to batch-verify Cursor referral link status and calculate total available credits.
 
 ## Setup Your Links
 
