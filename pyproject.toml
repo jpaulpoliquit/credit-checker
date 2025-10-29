@@ -1,0 +1,9 @@
+[project]
+name = "cursor-referral-validator"
+version = "1.0.0"
+description = "Toolkit for validating Cursor referral codes"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "selenium>=4.15.0",
+]
